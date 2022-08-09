@@ -10,8 +10,8 @@ app = Flask(__name__)
 photos = UploadSet('photos', IMAGES)
 
 app.config['UPLOADED_PHOTOS_DEST'] = 'images'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/socialdb' #path for db connection
-app.config['SQLALCHEMY_DATABASE_URI'] ="postgresql://igncaltnrgckct:a0ef50dcb8448bfb7e355eff6d898983b14788406d0f2820c97100a7be7d27a7@ec2-44-206-11-200.compute-1.amazonaws.com:5432/dfge8kaips58di"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/socialdb' #path for db connection
+#app.config['SQLALCHEMY_DATABASE_URI'] ="postgresql://igncaltnrgckct:a0ef50dcb8448bfb7e355eff6d898983b14788406d0f2820c97100a7be7d27a7@ec2-44-206-11-200.compute-1.amazonaws.com:5432/dfge8kaips58di"
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'ksdlfkdsofidsithnaljnfadksjhfdskjfbnjewrhewuirhfsenfdsjkfhdksjhfdslfjasldkj'
 
@@ -49,4 +49,4 @@ manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
-    manager.run()
+    app.run()
